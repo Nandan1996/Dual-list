@@ -127,7 +127,6 @@
 	}
 
 	function displaySlider(){
-		listNews.html("");
 		var selected =	$rightBox.find('div');
 		var photoList = [];
 		for(var i =0;i<selected.length;i++){
@@ -146,13 +145,15 @@
 		})
 		$('.photoDesc').css('width',w);
 		$('#bottom').css('visibility','visible');
+		moveCnt = 0;
 		return false;	
 	}
 	function moveItem(e){
+		var flag = false;
 		var target = $(e.target);
 		if(target.eq(0).is('.fwd')){
 			if(selectFrom.length>0)
-				$('#bottom').css('visibility','hidden');
+				flag = true;
 			for(var i = 0;i<selectFrom.length;i++){
 				var item = $leftBox.find('#'+selectFrom[i]);
 				item.css('background','blueviolet');
@@ -163,7 +164,7 @@
 		}
 		else if(target.eq(0).is('.bwd')){
 			if(deSelect.length>0)
-				$('#bottom').css('visibility','hidden');
+				flag = true;
 			for(var i = 0;i<deSelect.length;i++){
 				var item = $rightBox.find('#'+deSelect[i]);
 				item.css('background','blueviolet');
@@ -180,7 +181,7 @@
 				return false;
 			}
 			if(deSelect.length == 1){
-				$('#bottom').css('visibility','hidden');
+				flag = true;
 				var item = $rightBox.find('#' + deSelect[0]);
 				item.prev().before(item);
 			}
@@ -192,11 +193,16 @@
 				return false;
 			}
 			if(deSelect.length == 1){
-				$('#bottom').css('visibility','hidden');
+				flag = true;
 				var item = $rightBox.find('#' + deSelect[0]);
 				item.next().after(item);
 				
 			}
+		}
+		if(flag){
+			$('#bottom').css('visibility','hidden');
+			listNews.empty();
+			listNews.css('left','0px');
 		}
 		return false;
 	}
