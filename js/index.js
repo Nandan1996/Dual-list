@@ -183,7 +183,13 @@
 			if(deSelect.length == 1){
 				flag = true;
 				var item = $rightBox.find('#' + deSelect[0]);
-				item.prev().before(item);
+				if(item.is(':first-child')){
+					if($rightBox.children().length>1){
+						$rightBox.children(':last').after(item);
+					}
+				}
+				else
+					item.prev().before(item);
 			}
 		}
 		else if(target.eq(0).is('.down')){
@@ -195,7 +201,12 @@
 			if(deSelect.length == 1){
 				flag = true;
 				var item = $rightBox.find('#' + deSelect[0]);
-				item.next().after(item);
+				if(item.is(':last-child')){
+					if($rightBox.children().length>1)
+						$rightBox.children().eq(0).before(item);
+				}
+				else
+					item.next().after(item);
 				
 			}
 		}
