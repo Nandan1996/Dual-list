@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dual List</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+<script src="./js/jquery-3.1.1.js"></script>
+	<section id="top">
+		<form id="user">
+			<label for="userList">Select user</label>
+			<select id = "userList" name="user">
+			</select>
+			<br>
+			<input type="submit" value="Go">
+		</form>
+	</section>
+	<section id="middle">
+		<div id="left">
+			<span>Available Albums</span>
+			<div class="albumBox"></div>
+		</div>
+		<div id="ctrlb">
+			<img class = "arrow fwd" src="./images/fwd64.svg">
+			<img class = "arrow bwd" src="./images/back64.svg">
+		</div>
+		<div id="right">		
+			<span>Selected Albums</span>
+			<div class="albumBox"></div>
+		</div>
+		<div id="ctrle">
+			<img class = "arrow up" src="./images/up64.svg">
+			<img class = "arrow down" src="./images/down64.svg">
+		</div>
+		<button type="submit" value="Go">Go</button>
+	</section>
+	<section id="bottom">
+		<div id="gallery">
+			<div id="slider">
+				<div id="sleft">&lt;</div>
+				<div id="center">
+					<ul id="listNews">
+						
+					</ul>
+				</div>
+				<div id="sright">&gt;</div>
+			</div>
+		</div>
+	</section>
+<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
